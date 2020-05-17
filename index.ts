@@ -1,12 +1,14 @@
 
 import Server from './classes/server';
-import { SERVER_PORT } from './global/environment';
+import router from './routes/router';
 
 // const nombre = "José";
 // console.log(`Mi nombre es ${ nombre }`);
 
 const server = new Server();
 
+server.app.use('/', router)
+
 server.start( () => {
-    console.log(`Server running on port ${ SERVER_PORT }`)
+    console.log(`Server running on port ${ server.port }`)
 });
