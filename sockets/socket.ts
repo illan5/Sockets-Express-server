@@ -1,0 +1,10 @@
+import { Socket } from 'socket.io';
+
+
+
+
+export const desconectar = ( cliente: Socket ) => {
+    cliente.on('disconnect', () => {
+        console.log('Client disconnected');
+    });
+}
