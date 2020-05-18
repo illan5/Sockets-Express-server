@@ -15,6 +15,9 @@ class Server {
         this.io = socket_io_1.default(this.httpServer);
         this.escucharSockets();
     }
+    static get instance() {
+        return this._instance || (this._instance = new this());
+    }
     escucharSockets() {
         console.log('Listening connections - sockets');
         this.io.on('connection', cliente => {
