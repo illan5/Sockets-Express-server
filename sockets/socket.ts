@@ -11,11 +11,12 @@ export const desconectar = ( cliente: Socket ) => {
 }
 
 // Escuchar mensajes
-export const mensaje = ( cliente: Socket ) => {
+export const mensaje = ( cliente: Socket, io: socketIO.Server ) => {
 
-    cliente.on('mensaje', ( payload: { de:string, cuerpo:string } ) => {
+    cliente.on('mensaje', ( payload: { de: string, cuerpo: string } ) => {
 
         console.log('Received message', payload );
+        io.emit('mensaje-nuevo', payload );
 
     });
 
