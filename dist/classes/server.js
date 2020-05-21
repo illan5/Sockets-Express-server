@@ -32,13 +32,13 @@ class Server {
             // console.log('Client connected');
             console.log('Conectado:', cliente.id);
             // Conectar cliente
-            socket.conectarCliente(cliente);
+            socket.conectarCliente(cliente, this.io);
             // Configurar usuario
             socket.configurarUsuario(cliente, this.io);
             // Mensajes
             socket.mensaje(cliente, this.io);
             // Desconectar
-            socket.desconectar(cliente);
+            socket.desconectar(cliente, this.io);
         });
     }
     start(callback) {
